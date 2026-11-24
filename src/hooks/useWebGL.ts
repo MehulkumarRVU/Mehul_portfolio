@@ -1,0 +1,13 @@
+import { useMemo } from 'react'
+
+export function useWebGL() {
+  return useMemo(() => {
+    try {
+      const canvas = document.createElement('canvas')
+      const gl = canvas.getContext('webgl2') || canvas.getContext('webgl')
+      return !!gl
+    } catch {
+      return false
+    }
+  }, [])
+}
